@@ -23,12 +23,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                      <tr th:each="user:${userList}">
+                        <th scope="row" th:text="${user.id}"></th>
+                        <td th:text="${user.firstName}"></td>
+                        <td th:text="${user.LastName}"></td>
+                        <td th:text="${user.Username}"></td>
+                        <td th:text="${user.email}"></td>
                       </tr>
                       
                     </tbody>

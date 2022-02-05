@@ -12,31 +12,37 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-auto">
-                <form>
+                <form id="User" th:action="@{register}" th:object="${User}" method="post" class="form" role="form">
                     <h1 class="text-center">Create an account</h1>
                     <div class="mb-3">
                         <label  class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firsName" >
+                        <input type="text" class="form-control" id="firsName" th:field="${User.firstName}" >
                       </div>
                       <div class="mb-3">
                         <label  class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" >
+                        <input type="text" class="form-control" id="lastName" th:field="${User.LastName}">
                       </div>
                     <div class="mb-3">
                       <label class="form-label">Email</label>
-                      <input type="email" class="form-control" id="email" >
+                      <input type="email" class="form-control" id="email" th:field="${User.email}">
                     </div>
                     <div class="mb-3">
                         <label  class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" >
+                        <input type="text" class="form-control" id="username" th:field="${User.username}">
+                      </div>
+                      <div class="mb-3">
+                        <label  class="form-label" th:text="Roles">Role</label>
+                        <select class="w-100 form-select" th:field="${User.roles}">
+                          <option value="" th:each="role:${roles}" th:value="${role.id}" th:text="${role.name}" ></option>
+                        </select>
                       </div>
                     <div class="mb-3">
                       <label  class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password">
+                      <input type="password" class="form-control" id="password"  th:field="${User.password}">
                     </div>
                     <div class="mb-3">
                         <label  class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword">
+                        <input type="password" class="form-control" id="confirmPassword" th:field="${User.confirmPassword}">
                       </div>
                    
                     <button type="submit" class="btn btn-primary w-100">Register</button>
